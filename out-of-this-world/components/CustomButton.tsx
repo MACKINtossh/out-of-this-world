@@ -1,22 +1,11 @@
 "use client";
 
 import { CustomButtonProps } from "@types";
+import AnimatedText from "./styled/AnimatedText";
+import DynamicAnimation from "./styled/DynamicAnimation";
 
-const CustomButton = ({
-  title,
-  containerStyles,
-  handleClick,
-}: CustomButtonProps) => {
-  return (
-    <button
-      disabled={false}
-      type={"button"}
-      className={`custom-btn ${containerStyles}`}
-      onClick={() => {}}
-    >
-      <span className={`flex-1`}>{title}</span>
-    </button>
-  );
+const CustomButton = ({ text, handleClick }: CustomButtonProps) => {
+  return <DynamicAnimation text={text} />;
 };
 
 export default CustomButton;
