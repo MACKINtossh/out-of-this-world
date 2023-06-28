@@ -1,83 +1,39 @@
 "use client";
 import { useState } from "react";
-import { PlanetProps } from "@types";
-import { useMotionValue } from "framer-motion";
 import Image from "next/image";
-import PlanetDetails from "./PlanetDetails";
-import CustomButton from "@components/CustomButton";
+import ship4 from "../../public/ships/ship-4.png";
+import { PlanetDetailsProps } from "@types";
 
 interface PlanetCardProps {
-  planet: PlanetProps;
+  planet: PlanetDetailsProps;
 }
 
 const PlanetCard = ({ planet }: PlanetCardProps) => {
-  const { id, title, distance, description, transportMethod } = planet;
+  const { id, name, distance, description, transportMethod } = planet;
 
   const [isSelected, setIsSelected] = useState(false);
 
-  // const ETA = calculateEta()
 
   return (
-    <div className="car-card group">
-      <div className="car-card__content">
-        <h2 className="car-card__content-title">{title}</h2>
-      </div>
-
-      <p className="flex mt-6 text-[32px] leading-[38px] font-extrabold">
-        <span className="self-start text-[14px] leading-[17px] font-semibold">
-          $
-        </span>
-        {distance}
-        <span className="self-end text-[14px] leading-[17px] font-medium">
-          /day
-        </span>
-      </p>
-
-      {/* <div className="relative w-full h-40 my-3 object-contain">
+    <div className="group relative cursor-pointer rounded-lg items-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+      <div className="h-96 w-72">
         <Image
-          src={`images/${id}.jpg`}
-          alt="car model"
-          fill
-          priority
-          className="object-contain"
+          src={ship4}
+          alt="ship4"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
         />
-        <p>{description}</p>
-        <p>{transportMethod}</p>
-      </div> */}
-
-      <div className="relative flex w-full mt-2">
-        {/* <div className="flex group-hover:invisible w-full justify-between text-grey">
-          <div className="flex flex-col justify-center items-center gap-2">
-            <Image src="" width={20} height={20} alt="steering wheel" />
-            <p className="text-[14px] leading-[17px]">{`images/${id}.jpg`}</p>
-          </div>
-          <div className="car-card__icon">
-            <Image src="" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{`images/${id}.jpg`}</p>
-          </div>
-          <div className="car-card__icon">
-            <Image src="" width={20} height={20} alt="seat" />
-            <p className="car-card__icon-text">{`images/${id}.jpg`} MPG</p>
-          </div>
-        </div> */}
-
-        <div className="car-card__btn-container">
-          <CustomButton
-            title="View More"
-            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
-            textStyles="text-white text-[14px] leading-[17px] font-bold"
-            rightIcon="/right-arrow.svg"
-            handleClick={() => setIsSelected(true)}
-          />
-        </div>
       </div>
-
-      <PlanetDetails
-        isSelected={isSelected}
-        closeModal={() => setIsSelected(false)}
-        planet={planet}
-      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70"></div>
+      <div className="absolute inset-0 flex translate-y-[100%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+        <h1 className="font-dmserif text-3xl font-bold text-white">{name}</h1>
+        <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          {description}
+        </p>
+        <button className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+      </div>
     </div>
+
+   
   );
 };
 
