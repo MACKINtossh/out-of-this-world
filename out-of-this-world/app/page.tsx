@@ -1,18 +1,19 @@
-import { Hero } from "@components";
+import { Discover, Hero } from "@components";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <main className="overflow-hidden">
+    <main className="flex min-h-screen flex-col">
       <Hero />
 
-      <div className="mt-12" id="discover">
-        <div>
-          <h1>Choose Your Ride</h1>
-          <p>Then choose your new home</p>
-        </div>
+      <div
+        className="bg-black flex flex-col items-center justify-center min-h-screen"
+        id="discover"
+      >
+        <Discover />
       </div>
+      
     </main>
   );
 };
