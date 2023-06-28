@@ -1,23 +1,22 @@
-import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 import CustomButton from "./CustomButton";
+import AnimatedText from "./styled/AnimatedText";
 
 const Navbar = () => {
   return (
-    <header className="w-full  absolute z-10">
-      <nav className="max-w-[1440px] mx-auto flex justify-between items-center sm:px-16 px-6 ">
-        <Link href="/" className="flex justify-center items-center">
-          <Image />
-        </Link>
+    <div className="w-full grid grid-cols-4 absolute py-10 z-10">
+      <div className="col-span-2">
+        <AnimatedText text="Travel Like Never Before" className="text-white/70 rounded-lg" />
+        {/* <AnimatedText text="Never Before" /> */}
+      </div>
 
-        <CustomButton
-          title="Sign In"
-          btnType="button"
-          containerStyles="bg-primary-blue text-white px-20 rounded-full mt-10"
-        />
-      </nav>
-    </header>
+      <div className="col-span-2 flex items-center justify-center ">
+        <div>
+          <CustomButton text="Launch With Us" />
+        </div>
+      </div>
+    </div>
   );
 };
 
