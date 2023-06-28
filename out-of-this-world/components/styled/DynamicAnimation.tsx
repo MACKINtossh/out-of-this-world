@@ -23,7 +23,7 @@ const handleClick = () => {
   }
 };
 
-const DynamicAnimation = ({text }: AnimatedTextProps) => {
+const DynamicAnimation = ({ text }: AnimatedTextProps) => {
   return (
     <div className="w-full h-auto flex items-center justify-center text-center overflow-hidden">
       <motion.h1
@@ -38,7 +38,6 @@ const DynamicAnimation = ({text }: AnimatedTextProps) => {
         >
           <AnimatedText text={text} className="!text-xl !pb-0" />
         </button>
-
       </motion.h1>
     </div>
   );
