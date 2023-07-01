@@ -2,10 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import ship4 from "../../public/ships/ship-4.png";
-import { PlanetDetailsProps } from "@types";
+import { PlanetProps } from "@types";
+import PlanetDetails from "./PlanetDetails";
 
 interface PlanetCardProps {
-  planet: PlanetDetailsProps;
+  planet: PlanetProps;
 }
 
 const PlanetCard = ({ planet }: PlanetCardProps) => {
@@ -13,10 +14,13 @@ const PlanetCard = ({ planet }: PlanetCardProps) => {
 
   const [isSelected, setIsSelected] = useState(false);
 
+  const toggle = () => {
+    setIsSelected(!isSelected);
+  };
 
   return (
     <div className="group relative cursor-pointer rounded-lg items-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-      <div className="h-96 w-72">
+      <div className="">
         <Image
           src={ship4}
           alt="ship4"
@@ -29,11 +33,23 @@ const PlanetCard = ({ planet }: PlanetCardProps) => {
         <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           {description}
         </p>
-        <button className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60">See More</button>
+        <button
+          onClick={toggle}
+          className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-black/60"
+        >
+          See More
+        </button>
       </div>
+      {/* {isSelected ? (
+        <div className="z-100">
+          <PlanetDetails
+            isSelected={isSelected}
+            toggle={toggle}
+            planet={planet}
+          />
+        </div>
+      ) : null} */}
     </div>
-
-   
   );
 };
 

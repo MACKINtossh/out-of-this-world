@@ -1,21 +1,17 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-import {} from "@types";
+import { PlanetProps } from "@types";
 import React from "react";
 import Image from "next/image";
 
 interface PlanetDetailsProps {
   isSelected: boolean;
-  closeModal: () => void;
-  planet: PlanetDetailsProps;
+  toggle: () => void;
+  planet: PlanetProps;
 }
 
-const PlanetDetails = ({
-  isSelected,
-  closeModal,
-  planet,
-}: PlanetDetailsProps) => (
+const PlanetDetails = ({ isSelected, toggle, planet }: PlanetDetailsProps) => (
   <div className="relative mx-auto w-full max-w-sm pt-6">
     <a
       href="#"
@@ -118,6 +114,7 @@ const PlanetDetails = ({
               />
               <span className="xl:mt-0">ICON</span>
             </p>
+            <button onClick={toggle}>close</button>
           </div>
           {/* DETAILS SECTION 2 END */}
         </div>

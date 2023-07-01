@@ -13,18 +13,19 @@ export interface AnimatedTextProps {
   className?: string;
 }
 
-export interface PlanetDetailsProps {
+export interface PlanetProps {
   id: string;
   name: string;
+  image: string;
   distance: number;
   description: string;
   transportMethod: string;
 }
-export interface PlanetCardProps {
-  id: string;
-  title: string;
-  description?: string;
-}
+// export interface PlanetCardProps {
+//   id: string;
+//   title: string;
+//   description?: string;
+// }
 
 export interface TransportDetails {
   id: string;

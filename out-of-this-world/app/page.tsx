@@ -8,7 +8,7 @@ const Home = (props: Props) => {
       <Hero />
 
       <div
-        className="bg-black flex flex-col items-center justify-center min-h-screen"
+        className="bg-black flex items-center justify-center min-h-screen"
         id="discover"
       >
         <Discover />
