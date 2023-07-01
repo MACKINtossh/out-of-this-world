@@ -16,7 +16,8 @@ const Hero = (props: Props) => {
             Space : The Timeless Infinity
           </h2>
           <p className="text-sm md:text-base text-gray-50 mb-4">
-            Explore the next fronteir on the wings of science and approach your wildest dreams at the spped of light.
+            Explore the next frontier on the wings of science and approach your
+            wildest dreams at the speed of light.
           </p>
           <a
             href="#"
