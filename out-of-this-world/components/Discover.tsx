@@ -34,7 +34,7 @@ const Discover = (props: Props) => {
         {/* CARD GRID */}
         <div className="mb-10 sm:mb-0 mt-10 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:gridcols-4">
           {planetProps.map((planet) => (
-            <PlanetCard planet={planet} />
+            <PlanetCard key={planet.id} planet={planet} />
           ))}
         </div>
         {/* CARD GRID END */}

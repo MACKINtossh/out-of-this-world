@@ -1,27 +1,36 @@
 "use client";
-
+import { motion } from "framer-motion";
 import React from "react";
-
+import AnimatedText from "./styled/AnimatedText";
+import DynamicAnimation from "./styled/DynamicAnimation";
 type Props = {};
+
+const handleScroll = () => {
+  const nextSection = document.getElementById("discover");
+
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const Hero = (props: Props) => {
   return (
     <div className="bg-black min-h-screen text-white py-20">
       <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
         <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
-          <h1 className="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">
+          <h1 className="text-3xl md:text-5xl pb-6 text-yellow-300 tracking-loose">
             Out of This World
           </h1>
-          <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
-            Space : The Timeless Infinity
+          <h2 className="text-3xl md:text-4xl leading-relaxed md:leading-snug mb-2">
+            Into The Orchestra of Science
           </h2>
-          <p className="text-sm md:text-base text-gray-50 mb-4">
-            Explore the next frontier on the wings of science and approach your
+          <p className="text-sm md:text-lg text-gray-50 mb-4">
+            Explore the next frontier on the wings of ambition. Approach your
             wildest dreams at the speed of light.
           </p>
           <a
-            href="#"
-            className="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent"
+            onClick={handleScroll}
+            className="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black hover:font-semibold rounded shadow hover:shadow-lg mt-2 py-2 px-4 border border-yellow-300 hover:border-transparent"
           >
             Explore Now
           </a>
@@ -49,20 +58,14 @@ const Hero = (props: Props) => {
           </div>
         </div>
       </div>
+      <div className="mx-20 sm:mt-10">
+        <DynamicAnimation />
+      </div>
     </div>
   );
 };
 
 export default Hero;
-
-// const Hero = () => {
-//   const handleScroll = () => {
-//     const nextSection = document.getElementById("discover");
-
-//     if (nextSection) {
-//       nextSection.scrollIntoView({ behavior: "smooth" });
-//     }
-//   };
 
 //   return (
 //     <div classNameName="min-h-screen w-full flex flex-col">
